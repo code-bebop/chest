@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      video {
+        width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="aplay" onclick="playAudio()">Play music</button>
+    <button id="apause" onclick="pauseAudio()">Pause music</button>
+    <hr>
+    <button id="vplay">Play video</button>
+    <button id="vpause">Pause video</button>
+
+    <video src="C:\Users\kkse9\Videos\Captures\1112.mp4" controls muted></video>
+    <audio src="kapuchino with rain.mp3" id="myaudio"></audio>
+  </body>
+  <script type="text/javascript">
+    const myAudio = document.querySelector("#myaudio"),
+        aPlay = document.querySelector("#aplay"),
+        aPause = document.querySelector("#apause");
+
+    aPlay.addEventListener("click", function() {
+      myAudio.play();
+    })
+    aPause.addEventListener("click", function() {
+      myAudio.pause();
+    })
+  </script>
+</html>
