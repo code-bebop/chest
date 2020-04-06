@@ -9,6 +9,7 @@ li {
 
 body {
     min-width: 1280px;
+    overflow-x: hidden;
 }
 
 .header {
@@ -29,7 +30,16 @@ body {
 }
 
 .nav-primary {
+    display: inline-block;
     margin-top: 45px;
+    width: 100px;
+}
+
+.main-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .menu-item {
@@ -136,6 +146,8 @@ body {
     float: left;
     width: 50%;
     height: 100%;
+    text-align: center;
+    display: table;
 }
 
 .description-box__container:first-child::before {
@@ -156,6 +168,8 @@ body {
     font-size: 48px;
     line-height: 35px;
     color: #FFFFFF;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .description-box__text {
@@ -165,4 +179,100 @@ body {
     font-size: 24px;
     line-height: 35px;
     color: #FFF;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.section-work {
+    background: url(img/work.png) no-repeat center fixed;
+    position: relative;
+}
+
+.section__container-work {
+    width: 1680px;
+    margin: 0 0 0 auto;
+    white-space: nowrap;
+}
+
+.slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.slider-item {
+    margin-left: 24px;
+    overflow: hidden;
+    position: relative;
+    min-width: 230px;
+    max-width: 464px;
+}
+
+.slider-item-container {
+    color: #fff;
+    background: #000;
+}
+
+.slider-item-container * {
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+.slider-item-container:after,
+.slider-item-container figcaption {
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.slider-item-container:after {
+    content: '';
+    background: rgba(0,0,0,.65);
+    transition: .35s;
+    opacity: 0;
+}
+
+.slider-item-container figcaption {
+    z-index: 1;
+    padding: 40px;
+}
+
+.slider-item-container h3,
+.slider-item-container p {
+    opacity: 0;
+}
+
+.slider-item-container a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.slider-item-container:hover .slider-item__img {
+    opacity: .5;
+}
+
+.slider-item-container:hover:after {
+    opacity: 1;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.slider-item-container:hover h3,
+.slider-item-container:hover p {
+    transform: translate(0px, 0px);
+    opacity: 1;
 }
