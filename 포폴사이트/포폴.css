@@ -14,19 +14,15 @@ body {
 
 .header {
     position: fixed;
-    top: 13px;
+    top: 30px;
     left: 40px;
     right: 0;
     z-index: 1;
+    width: 151px;
 }
 
 .header__logo {
-    font-family: Post No Bills Colombo;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 80px;
-    line-height: 120px;
-    color: #FF4D00;
+    display: inline-block;
 }
 
 .nav-primary {
@@ -275,4 +271,32 @@ body {
 .slider-item-container:hover p {
     transform: translate(0px, 0px);
     opacity: 1;
+}
+
+.section-contact {
+    background: #313131;
+    color: #e4e4e4;
+    text-align: center;
+    position: relative;
+}
+
+.section-contact dl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.section-contact dt,
+.section-contact dd {
+    float: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.section-contact dt {
+    margin-right: 10px;
 }
