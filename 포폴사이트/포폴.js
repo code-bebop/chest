@@ -2,10 +2,34 @@ const section = document.querySelectorAll(".section"),
   menuList = document.querySelectorAll(".menu-item");
 
 let currentPage = 0,
+  titleIndex = 0,
   timer;
 
+function typeTitle() {
+    let x = "Hello, world;";
+    
+    if (titleIndex < x.length) {
+        document.querySelector(".section-intro__title").innerHTML += x[titleIndex];
+        titleIndex++;
+        setTimeout(typeTitle, 200);
+    }
+}
+
+function menuOutHandler(e) {
+    e.target.classList.remove("menu-item_active");
+}
+
 function menuHoverHandler(e) {
-    console.dir(e);
+    e.target.classList.add("menu-item_active");
+}
+
+function currentPageReacter() {
+    if(currentPage<=section.length-1) {
+        for(let i=0; i<menuList.length; i++) {
+            menuList[i].classList.remove("menu-item_active");
+        }
+        menuList[currentPage].classList.add("menu-item_active");
+    }
 }
 
 function scrollHandler(e) {
@@ -27,17 +51,19 @@ function scrollHandler(e) {
                 });
                 currentPage -= 1;
             }
+            currentPageReacter();
         }, 200);
     };
-
 }
 
 function init() {
+    typeTitle();
     window.addEventListener("wheel", scrollHandler, {passive: false});
-    for(let i = 0; i>=menuList.length; i++) {
-        (function (t) {
-            menuList[t].addEventListener("mouseover", menuHoverHandler);
-        }, false)(i);
+    for(let i = 0; i<menuList.length; i++) {
+        (function (i) {
+            menuList[i].addEventListener("mouseover", menuHoverHandler);
+            menuList[i].addEventListener("mouseout", menuOutHandler);
+        }(i));
     }
 }
 
