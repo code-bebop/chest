@@ -7,7 +7,6 @@ let currentPage = 0,
 
 function typeTitle() {
     let x = "Hello, world;";
-    
     if (titleIndex < x.length) {
         document.querySelector(".section-intro__title").innerHTML += x[titleIndex];
         titleIndex++;
@@ -15,12 +14,17 @@ function typeTitle() {
     }
 }
 
-function menuOutHandler(e) {
-    e.target.classList.remove("menu-item_active");
-}
-
-function menuHoverHandler(e) {
-    e.target.classList.add("menu-item_active");
+function menuClickHandler(e) {
+    for(let i=0; i<menuList.length; i++){
+        if(e.target===menuList[i]) {
+            window.scrollTo({
+                top: section[i].offsetTop,
+                behavior: 'smooth',
+            });
+          currentPage = i;
+          currentPageReacter();
+        }
+    }
 }
 
 function currentPageReacter() {
@@ -61,8 +65,7 @@ function init() {
     window.addEventListener("wheel", scrollHandler, {passive: false});
     for(let i = 0; i<menuList.length; i++) {
         (function (i) {
-            menuList[i].addEventListener("mouseover", menuHoverHandler);
-            menuList[i].addEventListener("mouseout", menuOutHandler);
+            menuList[i].addEventListener("mousedown", menuClickHandler);
         }(i));
     }
 }

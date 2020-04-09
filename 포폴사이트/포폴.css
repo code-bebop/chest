@@ -207,6 +207,7 @@ body {
     position: relative;
     min-width: 230px;
     max-width: 464px;
+    text-align: center;
 }
 
 .slider-item-container {
@@ -239,6 +240,8 @@ body {
 .slider-item-container figcaption {
     z-index: 1;
     padding: 40px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .slider-item-container h3,
@@ -272,6 +275,7 @@ body {
 .slider-item-container:hover p {
     transform: translate(0px, 0px);
     opacity: 1;
+    margin-bottom: 10px
 }
 
 .section-contact {
