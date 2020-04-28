@@ -1,7 +1,7 @@
 import React, {
   Component
 } from 'react';
-//import Subject from './components/Subject';
+import Subject from './components/Subject';
 import TOC from './components/TOC';
 import Content from './components/Content';
 import './App.css';
@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       mode: "read",
+      selected_content_id: 2,
       subject: {title: "Herb Green", sub: "Cherry Black"},
       welcome:{title: "welcome", desc:"Hello React"},
       content: [
@@ -27,22 +28,36 @@ class App extends Component {
       _title = this.state.welcome.title;
       _desc = this.state.welcome.desc;
     } else if(this.state.mode === "read"){
-      _title = this.state.content[0].title;
-      _desc = this.state.content[0].desc;
+      let i = 0;
+      while(i < this.state.content.length){
+        let data = this.state.content[i];
+        if(data.id === this.state.selected_content_id){
+          _title = data.title;
+          _desc = data.desc;
+          break;
+        }
+        i++;
+      }
     }
     return (
       <div className="App">
-        <header>
-          <h1><a href="/" onClick={(e)=>{
-            e.preventDefault();
-            this.state.mode = "welcome";
+        <Subject
+          title={this.state.subject.title}
+          sub={this.state.subject.sub}
+          onChangePage={()=>{
+            this.setState({mode:"welcome"});
+          }}>
+        </Subject>
+        <TOC
+          data={this.state.content}
+          onChangePage={(id)=>{
+            alert(id);
             this.setState({
-              mode:"welcome"
+              mode:"read",
+              selected_content_id:Number(id)
             });
-          }}>{this.state.subject.title}</a></h1>
-          <p>{this.state.subject.sub}</p>
-        </header>
-        <TOC data={this.state.content}></TOC>
+          }}  
+        ></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
     );
