@@ -7,7 +7,6 @@
 body {
   background: #F4EEFF;
   font-family: 'NanumSquare', sans-serif !important;
-  color: var(--black);
 }
 
 .top-line {
@@ -113,10 +112,11 @@ body {
 .work-grid__item {
 	position: relative;
   overflow: hidden;
+  text-align: center;
+  color: var(--white);
 }
 
 .work-gird__item__container {
-  color: var(--white);
   background: var(--black);
 }
 
@@ -144,27 +144,36 @@ body {
 }
 
 .work-grid__item__container figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 	z-index: 1;
 	padding: 40px;
-	top: 50%;
-	transform:translateY(-50%);
+  opacity: 0;
 }
 
-.work-grid__item__container h3,
-.work-grid__item__container p {
-	opacity: 0;
+.icon-container {
+  display: flex;
+  justify-content: center;
 }
 
-.work-grid__item__container a {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 1;
+.work-grid__item__container figcaption a {
+  padding: 10px;
+  opacity: .5;
 }
 
-.work-grid__item__container:hover img {
+.work-grid__item__container figcaption a:hover {
+  opacity: 1;
+}
+
+.work-grid__item__container h3 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+
+.work-grid__item__container:hover work-grid__item__background {
 	opacity: .5;
 }
 
@@ -177,11 +186,20 @@ body {
 	right: 10px;
 }
 
-.work-grid__item__container:hover h3,
-.work-grid__item__container:hover p {
+.work-grid__item__container:hover figcaption {
 	transform: translate(0px, 0px);
 	opacity: 1;
 	margin-bottom: 10px;
+}
+
+.work-grid__item-02 .work-grid__item__container figcaption img,
+.work-grid__item-04 .work-grid__item__container figcaption img {
+  transform: scale(.7);
+}
+
+.work-grid__item-02 .work-grid__item__container figcaption h3,
+.work-grid__item-04 .work-grid__item__container figcaption h3 {
+  font-size: 15px;
 }
 
 .work-grid__item-01 {
