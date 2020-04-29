@@ -3,7 +3,9 @@ import React, {
 } from 'react';
 import Subject from './components/Subject';
 import TOC from './components/TOC';
-import Content from './components/Content';
+import Control from './components/Control';
+import ReadContent from './components/ReadContent';
+import CreateContent from './components/CreateContent';
 import './App.css';
 
 class App extends Component {
@@ -23,10 +25,11 @@ class App extends Component {
   }
 
   render() {
-    let _title, _desc = null;
+    let _title, _desc, _article = null;
     if(this.state.mode === "welcome"){
       _title = this.state.welcome.title;
       _desc = this.state.welcome.desc;
+      _article = <ReadContent title={_title} desc={_desc}></ReadContent>
     } else if(this.state.mode === "read"){
       let i = 0;
       while(i < this.state.content.length){
@@ -34,10 +37,15 @@ class App extends Component {
         if(data.id === this.state.selected_content_id){
           _title = data.title;
           _desc = data.desc;
+          _article = <ReadContent title={_title} desc={_desc}></ReadContent>
           break;
         }
         i++;
       }
+    } else if (this.state.mode === "create"){
+      _article = <CreateContent onSubmit={(_title, _desc)=>{
+        
+      }}></CreateContent>
     }
     return (
       <div className="App">
@@ -51,14 +59,16 @@ class App extends Component {
         <TOC
           data={this.state.content}
           onChangePage={(id)=>{
-            alert(id);
             this.setState({
               mode:"read",
               selected_content_id:Number(id)
             });
           }}  
         ></TOC>
-        <Content title={_title} desc={_desc}></Content>
+        <Control onChangeMode={(_mode)=>{
+          this.setState({mode: _mode});
+        }}></Control>
+        {_article}
       </div>
     );
   }
