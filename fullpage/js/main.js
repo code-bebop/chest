@@ -32,6 +32,25 @@ function init() {
     distance: "25rem",
     delay: 600
   })
+  
+  //parallex
+  
+  $('.stillness').parallax({imageSrc: './img/slide_02.jpg'});
+  $('.alone').parallax({imageSrc: './img/slide_03.jpg'});
+  
+  //slick
+  
+  $('.slide-area').slick({
+    arrows: false,
+    autoplay: true,
+    pauseOnHover: false,
+  });
+  
+  $('.slide-area02').slick({
+    arrows: false,
+    autoplay: true,
+    pauseOnHover: false,
+  });
 }
 
 init();
