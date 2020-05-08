@@ -54,6 +54,7 @@ body {
 
 .section {
   display: inline-block;
+  margin-top: 8.5em;
 }
 
 .section_info {
@@ -102,7 +103,7 @@ body {
   padding-left: 20px;
 }
 
-.fa-chevron-right {
+.btn-arrows {
   position: absolute;
   top: 50%;
   right: 1em;
@@ -110,7 +111,7 @@ body {
 }
 
 .section_work {
-  width: 50%;
+  width: 52.9%;
   float: right;
 }
 
@@ -125,12 +126,18 @@ body {
   position: relative;
   background: var(--black);
   text-align: left;
+  width: 100%;
+  height: 100%;
 }
 
 .work-grid__img {
   opacity: .8;
   transition: opacity .35s;
   vertical-align: bottom;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .work-grid__text {
@@ -223,4 +230,35 @@ body {
 
 .grid-slide {
   width: 840px;
+}
+
+.slide-con {
+  margin-top: 1em;
+}
+
+.slide-con__ind,
+.slide-con__btn {
+  display: inline-block;
+}
+
+.slide-con__ind {
+  float: left;
+}
+
+.slide-ind {
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: .5em;
+}
+
+.slide-con__btn {
+  float: right;
+}
+
+.slide-btn {
+  padding: .8em;
+}
+
+.slide-btn-icon {
+  font-size: 1.3em;
 }
