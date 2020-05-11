@@ -7,6 +7,8 @@
 body {
   background: #F4EEFF;
   font-family: 'NanumSquare', sans-serif !important;
+  overflow: hidden;
+  position: relative;
 }
 
 .top-line {
@@ -90,7 +92,7 @@ body {
   text-align: left;
   font-size: 20px;
   line-height: 57px;
-  background: var(--accent);
+  background: var(--black);
   color: var(--white);
 }
 
@@ -262,3 +264,64 @@ body {
 .slide-btn-icon {
   font-size: 1.3em;
 }
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: -160px;
+  transition: bottom .5s ease-in;
+}
+
+.footer.on {
+  bottom: 0;
+}
+
+.footer__btn {
+  background: var(--white);
+  width: 100px;
+  height: 100px;
+  transform: translateX(-50%);
+  border-radius: 50px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  text-align: center;
+  line-height: 3.5em;
+  position: absolute;
+  left: 50%;
+  top: -35%;
+  transform: translateX(-50%);
+}
+
+.footer__btn__icon {
+  
+}
+
+.footer__nav {
+  background: var(--white);
+  position: relative;
+  margin: 0 40px;
+  width: 100%;
+  z-index: 1;
+}
+
+.footer__nav__list {
+  display: flex;
+}
+
+.footer__nav__list-item {
+  text-align: center;
+  width: 20%;
+}
+
+.footer__nav__list-item a {
+  display: block;
+  line-height: 160px;
+  font-weight: bold;
+  font-size: 36px;
+  transition: background .35s;
+}
+
+.footer__nav__list-item a:nth-child(1):hover {
+  background: #F7D794;
+}
+
