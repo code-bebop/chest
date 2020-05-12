@@ -9,6 +9,7 @@ body {
   font-family: 'NanumSquare', sans-serif !important;
   overflow: hidden;
   position: relative;
+  transition: background .35s;
 }
 
 .top-line {
@@ -94,6 +95,7 @@ body {
   line-height: 57px;
   background: var(--black);
   color: var(--white);
+  transition: background .35s;
 }
 
 .btn-list__item:first-child {
@@ -321,7 +323,14 @@ body {
   transition: background .35s;
 }
 
-.footer__nav__list-item a:nth-child(1):hover {
-  background: #F7D794;
+.footer__nav__list-item:nth-child(1):hover a {
+  background: #FFE9E8;
 }
 
+.footer__nav__list-item:nth-child(2):hover a {
+  background: #FFF9D9;
+}
+
+.footer__nav__list-item:nth-child(3):hover a {
+  background: #DFF4FF;
+}
