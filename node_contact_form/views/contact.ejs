@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="public/css/semantic.min.css">
+  
+</head>
+<body>
+    <div class="ui main text container segment" style="margin-top: 5%">
+        <div class="ui huge header margin-top" style="padding: 1em 0 0 1em">Contact Form</div>
+            <div class="ui divider"></div>
+            <form class="ui form" action="/contact" method="POST" style="padding:2em">
+                <div class="field">
+                    <label>전화번호</label>
+                    <input type="text" name="phone" placeholder="Phone">
+                </div>            
+                <div class="field">
+                    <label>이메일</label>
+                    <input type="text" name="email" placeholder="Email">
+                </div>
+                <div class="field">
+                    <label>제목</label>
+                    <input type="text" name="subject" placeholder="Subject">
+                </div>
+                <div class="field">
+                    <label>내용</label>
+                    <textarea name="message" placeholder="Enter message"></textarea>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" required>
+                        <label>모든 약관에 동의합니다.</label>
+                    </div>
+                </div>
+                <button class="ui button secondary" type="submit">보내기</button>
+            </form>  
+            
+        </div>
+    </div>
+
+    
+    
+    
+</body>
+</html>
